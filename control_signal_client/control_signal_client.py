@@ -34,18 +34,18 @@ while True:
             axis_x, axis_y = (joystick.get_axis(0), joystick.get_axis(1))
 
             if axis_x > axis_threshold and last_axis_x < axis_threshold:
-                send_socket_message(f"Controller: Joystick motion X+")
+                send_socket_message(f"X+")
             if axis_x < -axis_threshold and last_axis_x > -axis_threshold:
-                send_socket_message(f"Controller: Joystick motion X-")
+                send_socket_message(f"X-")
             if (axis_x < axis_threshold and last_axis_x > axis_threshold) or (axis_x > -axis_threshold and last_axis_x < -axis_threshold):
-                send_socket_message(f"Controller: Joystick motion X")
+                send_socket_message(f"X")
 
             if axis_y > axis_threshold and last_axis_y < axis_threshold:
-                send_socket_message(f"Controller: Joystick motion Y+")
+                send_socket_message(f"Y+")
             if axis_y < -axis_threshold and last_axis_y > -axis_threshold:
-                send_socket_message(f"Controller: Joystick motion Y-")
+                send_socket_message(f"Y-")
             if (axis_y < axis_threshold and last_axis_y > axis_threshold) or (axis_y > -axis_threshold and last_axis_y < -axis_threshold):
-                send_socket_message(f"Controller: Joystick motion Y")
+                send_socket_message(f"Y")
 
             last_axis_x = axis_x
             last_axis_y = axis_y
