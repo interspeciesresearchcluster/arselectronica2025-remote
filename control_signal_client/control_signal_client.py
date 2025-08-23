@@ -2,9 +2,9 @@ import os
 import socket
 import pygame
 
-#client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#client_socket.connect(('multispeciesresearchcluster.freeddns.org', 9999))
-#print("Connected to socket")
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client_socket.connect(('multispeciesresearchcluster.freeddns.org', 9999))
+print("Connected to socket")
 
 os.environ["SDL_JOYSTICK_ALLOW_BACKGROUND_EVENTS"] = "1" #Get input even if not focused on a pygame window
 pygame.init()
@@ -25,9 +25,7 @@ axis_threshold = 0.5
 
 def send_socket_message(message):
     print("Sending message: "+message)
-    client_socket.send(message.encode())
-
-
+client_socket.send(message.encode())
 while True:
     for event in pygame.event.get():
         if event.type == pygame.JOYAXISMOTION:
