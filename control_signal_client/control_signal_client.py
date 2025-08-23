@@ -3,7 +3,7 @@ import socket
 import pygame
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client_socket.connect(('multispeciesresearchcluster.freeddns.org', 19061))
+client_socket.connect(('multispeciesresearchcluster.ddnsfree.com', 19061))
 print("Connected to socket")
 
 os.environ["SDL_JOYSTICK_ALLOW_BACKGROUND_EVENTS"] = "1" #Get input even if not focused on a pygame window
