@@ -25,7 +25,8 @@ axis_threshold = 0.5
 
 def send_socket_message(message):
     print("Sending message: "+message)
-client_socket.send(message.encode())
+    client_socket.send(message.encode())
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.JOYAXISMOTION:
