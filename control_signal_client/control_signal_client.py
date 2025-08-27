@@ -4,6 +4,7 @@ import pygame
 
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect(('multispeciesresearchcluster.ddnsfree.com', 19061))
+#client_socket.connect(('127.0.0.0', 19061))
 print("Connected to socket")
 
 os.environ["SDL_JOYSTICK_ALLOW_BACKGROUND_EVENTS"] = "1" #Get input even if not focused on a pygame window
@@ -17,8 +18,10 @@ print(f"Detected {pygame.joystick.get_count()} joysticks")
 joystick = pygame.joystick.Joystick(0)
 joystick.init()
 
-last_axis_x = 0
-last_axis_y = 0
+last_axis_0x = 0
+last_axis_0y = 0
+last_axis_1x = 0
+last_axis_1y = 0
 
 axis_threshold = 0.5
 
@@ -30,30 +33,82 @@ def send_socket_message(message):
 while True:
     for event in pygame.event.get():
         if event.type == pygame.JOYAXISMOTION:
+
             # Handle joystick axis motion
-            axis_x, axis_y = (joystick.get_axis(0), joystick.get_axis(1))
+            axis_0x, axis_0y = (joystick.get_axis(0), joystick.get_axis(1) )
 
-            if axis_x > axis_threshold and last_axis_x < axis_threshold:
-                send_socket_message(f"X+")
-            if axis_x < -axis_threshold and last_axis_x > -axis_threshold:
-                send_socket_message(f"X-")
-            if (axis_x < axis_threshold and last_axis_x > axis_threshold) or (axis_x > -axis_threshold and last_axis_x < -axis_threshold):
-                send_socket_message(f"X")
+            if axis_0x > axis_threshold and last_axis_0x < axis_threshold:
+                send_socket_message(f"Joystick 0: X+")
+            if axis_0x < -axis_threshold and last_axis_0x > -axis_threshold:
+                send_socket_message(f"Joystick 0: X-")
+            if (axis_0x < axis_threshold and last_axis_0x > axis_threshold) or (axis_0x > -axis_threshold and last_axis_0x < -axis_threshold):
+                send_socket_message(f"Joystick 0: X")
 
-            if axis_y > axis_threshold and last_axis_y < axis_threshold:
-                send_socket_message(f"Y+")
-            if axis_y < -axis_threshold and last_axis_y > -axis_threshold:
-                send_socket_message(f"Y-")
-            if (axis_y < axis_threshold and last_axis_y > axis_threshold) or (axis_y > -axis_threshold and last_axis_y < -axis_threshold):
-                send_socket_message(f"Y")
+            if axis_0y > axis_threshold and last_axis_0y < axis_threshold:
+                send_socket_message(f"Joystick 0: Y+")
+            if axis_0y < -axis_threshold and last_axis_0y > -axis_threshold:
+                send_socket_message(f"Joystick 0: Y-")
+            if (axis_0y < axis_threshold and last_axis_0y > axis_threshold) or (axis_0y > -axis_threshold and last_axis_0y < -axis_threshold):
+                send_socket_message(f"Joystick 0: Y")
 
-            last_axis_x = axis_x
-            last_axis_y = axis_y
+            last_axis_0x = axis_0x
+            last_axis_0y = axis_0y
 
-            #send_socket_message(f"Controller: Joystick motion ({axis_x}, {axis_y})")
+            axis_1x, axis_1y = (joystick.get_axis(2), joystick.get_axis(3) )
+
+            if axis_1x > axis_threshold and last_axis_1x < axis_threshold:
+                send_socket_message(f"Joystick 1: X+")
+            if axis_1x < -axis_threshold and last_axis_1x > -axis_threshold:
+                send_socket_message(f"Joystick 1: X-")
+            if (axis_1x < axis_threshold and last_axis_1x > axis_threshold) or (axis_1x > -axis_threshold and last_axis_1x < -axis_threshold):
+                send_socket_message(f"Joystick 1: X")
+
+            if axis_1y > axis_threshold and last_axis_1y < axis_threshold:
+                send_socket_message(f"Joystick 1: Y+")
+            if axis_1y < -axis_threshold and last_axis_1y > -axis_threshold:
+                send_socket_message(f"Joystick 1: Y-")
+            if (axis_1y < axis_threshold and last_axis_1y > axis_threshold) or (axis_1y > -axis_threshold and last_axis_1y < -axis_threshold):
+                send_socket_message(f"Joystick 1: Y")
+
+            last_axis_1x = axis_1x
+            last_axis_1y = axis_1y
+
         elif event.type == pygame.JOYBUTTONDOWN:
             # Handle button press
-            send_socket_message(f"Controller: Button press")
+            if joystick.get_button(0):
+                send_socket_message(f"Button press: 0")
+            elif joystick.get_button(1):
+                send_socket_message(f"Button press: 1")
+            elif joystick.get_button(2):
+                send_socket_message(f"Button press: 2")
+            elif joystick.get_button(3):
+                send_socket_message(f"Button press: 3")
+            elif joystick.get_button(4):
+                send_socket_message(f"Button press: 4")
+            elif joystick.get_button(5):
+                send_socket_message(f"Button press: 5")
+            elif joystick.get_button(6):
+                send_socket_message(f"Button press: 6")
+            elif joystick.get_button(7):
+                send_socket_message(f"Button press: 7")
+            elif joystick.get_button(8):
+                send_socket_message(f"Button press: 8")
+            elif joystick.get_button(9):
+                send_socket_message(f"Button press: 9")
+            elif joystick.get_button(10):
+                send_socket_message(f"Button press: 10")
+            elif joystick.get_button(11):
+                send_socket_message(f"Button press: 11")
+            elif joystick.get_button(12):
+                send_socket_message(f"Button press: 12")
+            elif joystick.get_button(13):
+                send_socket_message(f"Button press: 13")
+            elif joystick.get_button(14):
+                send_socket_message(f"Button press: 14")
+            elif joystick.get_button(15):
+                send_socket_message(f"Button press: 15")
+            elif joystick.get_button(16):
+                send_socket_message(f"Button press: 16")
 
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:

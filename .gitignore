@@ -1,2 +1,3 @@
 venv/
 control_signal_client/venv/
+control_signal_server/__pycache__/
