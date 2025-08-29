@@ -83,38 +83,36 @@ while True:
             last_axis_1y = axis_1y
 
         elif event.type == pygame.JOYBUTTONDOWN:
-            print(event.button)
             # Handle button press
-            if joystick.get_button(0):
+            if event.button == 0:
                 send_socket_message(f"Button down: 0")
-            elif joystick.get_button(1):
+            elif event.button == 1:
                 send_socket_message(f"Button down: 1")
-            elif joystick.get_button(2):
+            elif event.button == 2:
                 send_socket_message(f"Button down: 2")
-            elif joystick.get_button(3):
+            elif event.button == 3:
                 send_socket_message(f"Button down: 3")
-            elif joystick.get_button(4):
+            elif event.button == 4:
                 send_socket_message(f"Button down: 4")
-            elif joystick.get_button(5):
+            elif event.button == 5:
                 send_socket_message(f"Button down: 5")
-            elif joystick.get_button(6):
+            elif event.button == 6:
                 send_socket_message(f"Button down: 6")
-            elif joystick.get_button(7):
+            elif event.button == 7:
                 send_socket_message(f"Button down: 7")
-            elif joystick.get_button(8):
+            elif event.button == 8:
                 send_socket_message(f"Button down: 8")
-            elif joystick.get_button(9):
+            elif event.button == 9:
                 send_socket_message(f"Button down: 9")
-            elif joystick.get_button(10):
+            elif event.button == 10:
                 send_socket_message(f"Button down: 10")
-            elif joystick.get_button(11):
+            elif event.button == 11:
                 send_socket_message(f"Button down: 11")
-            elif joystick.get_button(12):
+            elif event.button == 12:
                 send_socket_message(f"Button down: 12")
         
         elif event.type == pygame.JOYBUTTONUP:
             # Handle button press
-            print(event.button)
             if event.button == 0:
                 send_socket_message(f"Button up: 0")
             elif event.button == 1:
