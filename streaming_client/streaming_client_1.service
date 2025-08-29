@@ -1,0 +1,15 @@
+[Unit]
+Description=Streaming Client 1
+
+[Service]
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/pi/.Xauthority
+ExecStartPre=/bin/sleep 25           // to add sleep for n sec before starting app
+ExecStart= sh /home/maxbaraitsersmith/Desktop/arselectronica2025-remote/streaming_client/streaming_client_1.sh
+Restart=always
+RestartSec=5s
+KillMode=process
+TimeoutSec=infinity
+
+[Install]
+WantedBy=multi-user.target
