@@ -32,6 +32,15 @@ def send_socket_message(message):
 
 while True:
     for event in pygame.event.get():
+        if event.type == pygame.JOYDEVICEREMOVED:
+            print("Joystick removed")
+            joystick.quit()
+
+        elif event.type == pygame.JOYDEVICEADDED:
+            print("Joystick added")
+            joystick = pygame.joystick.Joystick(0)
+            joystick.init()
+
         if event.type == pygame.JOYAXISMOTION:
 
             # Handle joystick axis motion
