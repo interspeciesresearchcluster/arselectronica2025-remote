@@ -1,4 +1,4 @@
 [Desktop Entry]
 Name=Control Signal Client
-Exec=bash /home/maxbaraitsersmith/Desktop/arselectronica2025-remote/control_signal_client/control_signal_client.sh
+Exec=lxterminal -e "bash /home/maxbaraitsersmith/Desktop/arselectronica2025-remote/control_signal_client/control_signal_client.sh"
 Type=Application
