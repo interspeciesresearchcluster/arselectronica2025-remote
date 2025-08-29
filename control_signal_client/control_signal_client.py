@@ -110,14 +110,6 @@ while True:
                 send_socket_message(f"Button down: 11")
             elif joystick.get_button(12):
                 send_socket_message(f"Button down: 12")
-            elif joystick.get_button(13):
-                send_socket_message(f"Button down: 13")
-            elif joystick.get_button(14):
-                send_socket_message(f"Button down: 14")
-            elif joystick.get_button(15):
-                send_socket_message(f"Button down: 15")
-            elif joystick.get_button(16):
-                send_socket_message(f"Button down: 16")
         
         elif event.type == pygame.JOYBUTTONUP:
             # Handle button press
@@ -145,16 +137,6 @@ while True:
                 send_socket_message(f"Button up: 10")
             elif joystick.get_button(11):
                 send_socket_message(f"Button up: 11")
-            elif joystick.get_button(12):
-                send_socket_message(f"Button up: 12")
-            elif joystick.get_button(13):
-                send_socket_message(f"Button up: 13")
-            elif joystick.get_button(14):
-                send_socket_message(f"Button up: 14")
-            elif joystick.get_button(15):
-                send_socket_message(f"Button up: 15")
-            elif joystick.get_button(16):
-                send_socket_message(f"Button up: 16")
 
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
