@@ -11,7 +11,7 @@ os.environ["SDL_JOYSTICK_ALLOW_BACKGROUND_EVENTS"] = "1" #Get input even if not 
 pygame.init()
 joysticks = []
 clock = pygame.time.Clock()
-screen = pygame.display.set_mode((300, 300))
+# screen = pygame.display.set_mode((300, 300))
 
 pygame.joystick.init()
 print(f"Detected {pygame.joystick.get_count()} joysticks")
