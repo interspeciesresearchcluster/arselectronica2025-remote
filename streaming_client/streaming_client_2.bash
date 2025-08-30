@@ -1,6 +1,15 @@
 #!/bin/bash
 
 FIFO=/tmp/streaming_client_2_pipe
+MPV_PID=""
+NETCAT_PID=""
+
+function cleanup {
+    echo "Cleaning up processes $MPV_PID, $NETCAT_PID"
+    rm "$FIFO"
+    kill $MPV_PID 2>/dev/null
+    kill $NETCAT_PID 2>/dev/null
+}
 
 trap cleanup EXIT INT TERM
 
@@ -17,10 +26,3 @@ NETCAT_PID=$!
 
 # Wait for ffmpeg to finish
 wait $NETCAT_PID
-
-function cleanup {
-    echo "Cleaning up..."
-    rm "$FIFO"
-    kill $MPV_PID 2>/dev/null
-    kill $NETCAT_PID 2>/dev/null
-}
