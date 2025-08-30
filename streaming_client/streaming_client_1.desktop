@@ -1,4 +1,4 @@
 [Desktop Entry]
 Name=Streaming Client 1
-Exec=lxterminal -e "bash /home/maxbaraitsersmith/Desktop/arselectronica2025-remote/streaming_client/streaming_client_1.sh"
+Exec=lxterminal -e "bash /home/maxbaraitsersmith/Desktop/arselectronica2025-remote/streaming_client/streaming_client_1_loop.sh"
 Type=Application

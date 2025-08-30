@@ -3,7 +3,7 @@
 while :
 do
     echo "Starting command..."
-    nc multispeciesresearchcluster.ddnsfree.com 19062 | mpv --no-cache --untimed --no-demuxer-thread  --fs -
+    bash /home/maxbaraitsersmith/Desktop/arselectronica2025-remote/streaming_client/streaming_client_1.bash"
     echo "Command exited, waiting 5 seconds..."
     sleep 5
 done
