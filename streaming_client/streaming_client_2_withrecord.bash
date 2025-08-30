@@ -19,7 +19,7 @@ mkfifo "$FIFO"
 
 # Start mpv reading from the FIFO
 timestamp=$(date +%s)
-mpv --no-cache --untimed --no-demuxer-thread --stream-record=/media/maxbaraitsersmith/SEAGATE/arselectronicarecordings/video/$timestamp.mp4 --fs - < "$FIFO" &
+mpv --no-cache --untimed --no-demuxer-thread --stream-record=/media/maxbaraitsersmith/SEAGATE/arselectronicarecordings/video/$timestamp.mp3 --fs - < "$FIFO" &
 MPV_PID=$!
 
 nc multispeciesresearchcluster.ddnsfree.com 19063 > "$FIFO" &
